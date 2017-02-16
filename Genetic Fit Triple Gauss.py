@@ -53,7 +53,7 @@ def AcceptReject(child_array,index): ##Chooses which parent to take gene from ba
 size_of_pop = 20
 variableses = population(size_of_pop)
 
-children = np.zeros(size_of_pop)
+children = [0]*size_of_pop
 fitness_list = []
 best_cost = 99999999
 best_parent = []
