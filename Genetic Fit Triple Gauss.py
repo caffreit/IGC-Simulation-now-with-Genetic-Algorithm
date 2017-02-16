@@ -18,7 +18,7 @@ import random as rd
 def func(cov,gam0,gam1,mid,p):
     return ((gam0-gam1)/(1+((cov/mid)**p)))+gam1
 
-def population(count):
+def population(count):  ##Creates initial Population of individuals
     individual_array = []
     for i in range(count):
         individual = [float(rd.randint(0,50))/100, float(rd.randint(10,150))/1000, float(rd.randint(10,150))/1000, float(rd.randint(10,150))/1000, float(rd.randint(1,30))/1000, float(rd.randint(1,30))/1000, float(rd.randint(1,30))/1000]
@@ -27,7 +27,7 @@ def population(count):
     return individual_array
     
     
-def AcceptReject(child_array,index):
+def AcceptReject(child_array,index): ##Chooses which parent to take gene from based on fitness, or whether to mutate gene.
     while (True):
         number = rd.randint(0,100)
         number2 = rd.uniform(0,fitness_array[par_4_ind])
@@ -295,10 +295,10 @@ for generation in range(2000):
         midpoint_list = popt_array[:,2]
         delta_gamma = np.subtract(gamma1_list,gamma0_list)
         
-        Real_IGC_gam1 = [0.04725723, 0.04471484, 0.03851335, 0.04082745, 0.0434372, 0.03665321, 0.0319563]
-        Real_IGC_deltagam = [-0.02717509, -0.03199348, -0.02774597, -0.0316344, -0.01376077, -0.02359752, -0.03283994]
-        Real_IGC_gam0 = [0.07443232, 0.07670832, 0.06625932, 0.07246185, 0.05719797, 0.06025073, 0.06479624]
-        Real_IGC_midp = [0.03295, 0.02819, 0.01839, 0.00946, 0.0122, 0.00904, 0.00746]
+        Real_IGC_gam1 = [1,2,3,4,5]
+        Real_IGC_deltagam = [1,2,3,4,5]
+        Real_IGC_gam0 = [1,2,3,4,5]
+        Real_IGC_midp = [1,2,3,4,5]
         
         cost = 0
         for i in range(len(basal_pop_list)):
@@ -332,30 +332,6 @@ for generation in range(2000):
         child = []
         for i in range(len(variables)):
             AcceptReject(child,i)
-            """
-            number = rd.randint(0,100)
-            #number1 = rd.randint(0,2)
-            #testnum = np.sum(fitness_array)
-            number2 = rd.randint(0,fitness_list[par_4_ind]) ## just so that parent3 has a chance to mate.
-            if number<85:
-                if number%3 ==0:
-                    if number2>fitness_list[1]
-                    child.append(father[i])
-                elif number%3 == 1:
-                     if number2>fitness_list[2]
-                    child.append(parent3[i])
-                else:
-                     if number2>fitness_list[0]
-                    child.append(mother[i])
-            else:
-                if 0 < i < 4:
-                    new_gene = float(rd.randint(10,150))/1000
-                elif 3 < i < 7:
-                    new_gene = float(rd.randint(1,30))/1000
-                else:
-                    new_gene = float(rd.randint(0,50))/100
-                child.append(new_gene)
-             """  
         children.append(child)
         children.pop(0)
         fitness_list.pop(0)
