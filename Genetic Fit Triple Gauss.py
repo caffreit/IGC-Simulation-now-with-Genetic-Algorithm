@@ -50,10 +50,10 @@ def AcceptReject(child_array,index): ##Chooses which parent to take gene from ba
                 new_gene = float(rd.randint(0,50))/100
             return(child.append(new_gene))
 
+size_of_pop = 20
+variableses = population(size_of_pop)
 
-variableses = population(20)
-
-children = [[0],[0],[0],[0],[0],[0],[0],[0],[0],[0]]
+children = np.zeros(size_of_pop)
 fitness_list = []
 best_cost = 99999999
 best_parent = []
@@ -328,7 +328,7 @@ for generation in range(2000):
         best_cost = np.sqrt(fitness_list[mother_index])
         best_parent = mother
     
-    for j in range(20):
+    for j in range(size_of_pop):
         child = []
         for i in range(len(variables)):
             AcceptReject(child,i)
