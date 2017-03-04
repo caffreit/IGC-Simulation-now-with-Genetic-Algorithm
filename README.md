@@ -1,4 +1,4 @@
-# Triple-Gaussian
+# Triple-Gaussian now with Genetic Algorithm
 Computes and fits IGC profile for a material described by 3 Gaussians.
 Each Gaussain distribution decribes a site type; Basal Plane Defect, Basal Plane, Edge.
 The positions and widths of each gaussian can be changed.
